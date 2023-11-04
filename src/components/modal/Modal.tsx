@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Modal({ onClose, children, }) {
+function Modal({ onSave,onClose, children,header, title="TITLE"}) {
 //   if (!isOpen) {
 //     return null; // Don't render the modal if it's not open
 //   }
@@ -26,8 +26,9 @@ function Modal({ onClose, children, }) {
 
   const content = {
     backgroundColor: 'white',
-    padding: '20px',
+    color:"black",
     borderRadius: '4px',
+    width:"580px",
     maxWidth: '80%',
     maxHeight: '80%',
     overflow: 'auto',
@@ -37,11 +38,19 @@ function Modal({ onClose, children, }) {
 
   return (
     <div style={overlay} onClick={closeModal}>
-      <div style={content} onClick={(e) => e.stopPropagation()}>
+     <div style={content} onClick={(e) => e.stopPropagation()}>
+        <div style={{backgroundColor:'#f3f4f6', height:"48px", fontSize:"22px", fontWeight:"700", color:"black",display:"flex", alignItems:"center", padding:"0px 16px"}}>{title ? title : header}</div>
         {children}
-        <button className="close-button" onClick={closeModal}>
+       <div style={{display:"flex",justifyContent:"flex-end", backgroundColor:'#f3f4f6', padding:"8px 16px" }} >
+       <div style={{display:"flex", gap:"12px"}}>
+       <button className="close-button" onClick={closeModal} style={{backgroundColor:"transparent",border:"none", color:"#00008B"}}>
           Close
         </button>
+       <button className="close-button" onClick={onSave} style={{backgroundColor:"#00008B",border:"none", color:"white", borderRadius:"4px"}}>
+          Save
+        </button>
+       </div>
+       </div>
       </div>
     </div>
   );
