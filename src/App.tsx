@@ -1,35 +1,25 @@
-import React from 'react'
-import Card from './components/card'
 import { Table } from './components/Table'
+import { useTransformData } from './hooks/useTransform';
+import { useModal } from './providers/modalprovider';
 
 
-const useTransformData = (data: Record<string, any>[] , componentMap  : any): Row[] => {
-  return data.map((row, rowIndex) => {
-      const rowComponents = Object.entries(componentMap).map(([key, Component]) => {
-          console.log(row);
-            
-        return {
-              headerName: key,
-              componentConfig: {
-                  component: <Component data={row} />
-              }
-          };
-      });
-      return { id: rowIndex, columns: rowComponents };
-  });
-};
 
+function YourModalContent(){
+  return (
+    <>
+      <h1>Hello</h1>
+    </>    
+  )
+}
 
 function App() {
-    
-  function onDelete(data){ 
-    console.log(data);
-    
+  const { showModal, hideModal } = useModal();
+  async function onDelete(data){ 
+
   }
 
-  function onEdit(data){
-      console.log(data);
-      
+  async function onEdit(data){    
+    showModal({ component: <YourModalContent /> });
   }
 
   const apiData = [
