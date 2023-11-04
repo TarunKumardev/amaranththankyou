@@ -40,7 +40,7 @@ function ExtenalCard() {
       }
 
 
-  return (<Table rows={dataRows} />)
+  return <></>
 }
 
 export default ExtenalCard

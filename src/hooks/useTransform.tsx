@@ -16,6 +16,7 @@ interface ComponentMap {
   [key: string]: ComponentType<{ data: Record<string, unknown> }>;
 }
 
+
 export const useTransformData = (
   data: Record<string, unknown>[],
   componentMap: ComponentMap

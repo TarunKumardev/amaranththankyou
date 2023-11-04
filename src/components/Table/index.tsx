@@ -52,6 +52,7 @@ type Column = {
   
   export const Table: React.FC<TableProps> = ({ rows }) => (
     <table style={styles.table} className="contact__table">
+      {/*   map <>   */}
       <tbody>
         {rows.map((row) => (
           <Row key={row.id} data={row} styles={{...styles.th, ...styles.td, ...styles.tr}}/>
