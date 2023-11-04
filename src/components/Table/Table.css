@@ -1,0 +1,3 @@
+.contact__table::-webkit-scrollbar{
+    height: 0;
+}

@@ -1,6 +1,6 @@
 import  { createContext, useContext, useState, ReactNode, useCallback } from 'react';
-import ModalPortal from '@/components/ModalPortal';
-import Modal from '@/components/Modal';
+import ModalPortal from '@/components/modal/ModalPortal';
+import Modal from '@/components/modal/Modal';
 
 interface ModalContent {
   component: ReactNode;

@@ -1,6 +1,4 @@
-import React, { ReactElement } from 'react';
-
-type ComponentMap = Record<string, React.ComponentType<unknown>>;
+import React, { ReactElement, ComponentType } from 'react';
 
 interface Row {
   id: number;
@@ -12,6 +10,10 @@ interface Column {
   componentConfig: {
     component: ReactElement;
   };
+}
+
+interface ComponentMap {
+  [key: string]: ComponentType<{ data: Record<string, unknown> }>;
 }
 
 export const useTransformData = (

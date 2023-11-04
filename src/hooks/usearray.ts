@@ -1,17 +1,16 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 
-type ArrayItemType = string;
+export function useArray<T>(initialArray: T[]) {
+  const [state, setState] = useState<T[]>(initialArray);
 
-export function useArray(initialArray: ArrayItemType[]) {
-  const [state, setState] = useState<ArrayItemType[]>(initialArray);
-
-  const remove = (id: number) => {
-    const newArray = state.filter((item) => item.id !== id);
+  const remove = (index: number) => {
+    const newArray = [...state.slice(0, index), ...state.slice(index + 1)];
     setState(newArray);
   };
 
-  const update = (index: number, newItem: ArrayItemType) => {
-    const newArray = state.map((item, i) => (i === index ? newItem : item));
+  const update = (index: number, newItem: T) => {
+    const newArray = [...state];
+    newArray[index] = newItem;
     setState(newArray);
   };
 
@@ -21,5 +20,3 @@ export function useArray(initialArray: ArrayItemType[]) {
     update,
   };
 }
-
-
